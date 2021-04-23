@@ -1,0 +1,80 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    width:100%;
+    height:100%;
+}
+
+
+
+#glass{
+    height: 100vh;
+    width: 20vw;
+   
+}
+
+.insideGlass{
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+#buttonSearch{
+    margin-top:2rem;
+}
+
+#infoPanel{
+    width: 80vw !important;
+    height:100vh;
+    
+}
+
+.info{
+    width:70vw;
+    margin-left:2rem;
+}
+
+.rows{
+    display:flex;
+    justify-content: flex-start;
+}
+
+.background{
+    background-color: bisque;
+}
+
+.insideGlass input,button{
+    opacity:0.75;
+}
+
+.insideGlass input:focus{
+    opacity:0.9;
+}
+
+.insideGlass button:hover{
+    opacity:0.9;
+}
+
+.firstColumn{
+    display:flex;
+    justify-content:space-around;
+    position: absolute;
+    width: 80%;
+}
+
+.lastColumn{
+    display:flex;
+    justify-content:space-around;
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+}
+
+
