@@ -16,28 +16,21 @@
             <div class="card-body insideGlass">
                 <input type="text" class="form-control" id="inputName" placeholder="Cidade" >
                 <button id="buttonSearch" class="btn btn-primary ">Descubra a temperatura&#x26C5; </button>  
+                <h1 class="temperatura mb-4 mt-2">Temperatura</h1>
+                <h1 class="umidade mb-4">Umidade</h1>
+                <h1 class="clima mb-4">Clima</h1>
+                <h1 class="cidade mb-4">Cidade</h1>
+                <h1 class="pais mb-4">País</h1>
             </div>
         </div>
-        <div class="infoPanel" style="width: 80vw;" >
+        <div class="infoPanel"  >
             
-                <div class="firstColumn">
-                    <h1 class="umidade">Umidade</h1>
-                    <h1 class="clima">Clima</h1>
-                </div>
-                <div class="middleColumn text-center ">
-                    <h1 class="temperatura">Temperatura</h1>
-                </div>
-                <div class="lastColumn">
-                    <h1 class="cidade">Cidade</h1>
-                    
-                    <h1 class="pais">País</h1>
-                </div>
             
         </div>
     </div>
 
 
-    <input id="api" hidden value={{api}}>
+    <input id="api" type="hidden" value={{api}}>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     
 
