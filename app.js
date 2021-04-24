@@ -38,7 +38,7 @@ const io = require('socket.io')(server, {
 
 
 io.on('connection',function(socket){
-  console.log('Entered socket');
+  console.log('Entered socket', socket.id);
   
   
   
@@ -77,7 +77,7 @@ io.on('connection',function(socket){
         console.log(err);
       }).finally(response=>{
         console.log(dataCol);
-        io.sockets.emit('weather', dataCol)
+        io.to(socket.id).emit('weather', dataCol)
     });
   });
 });
