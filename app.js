@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs  = require('express-handlebars');
 const axios = require('axios').default;
 const app = express();
+const database = require('./config/database')
 require('dotenv').config()
 
 //Setting up app 
@@ -28,22 +29,28 @@ let server = app.listen(3000, function(){
 });
 
 
-//WebSocket
+//Connecting to database Postgres
+client = database.client;
+client.connect();
+
+
+
+
+//WebSocket Socket.io 
 const io = require('socket.io')(server, {
   cors: {
     origin: '*',
   }
 });
 
-
-
 io.on('connection',function(socket){
-  console.log('Entered socket', socket.id);
-  
-  
-  
+  let requestSuccessful = false;
+  const text = 'SELECT * FROM cidades.cidades ORDER BY updated_at DESC limit 10;'
+
+  //Weather websocket
   socket.on('weather',function(data){
-    //console.log(data);
+    
+    //Setting Data Object Structure to receive Response from Axios
     let dataCol = {
       temperatura : "",
       umidade : "",
@@ -52,7 +59,7 @@ io.on('connection',function(socket){
       pais : ""
     };
     
-
+    //Get Api Response Using Axios
     axios.get("http://api.openweathermap.org/data/2.5/weather?q="+data.cidade+
     "&units=metric&appid=" + process.env.API
     + "&lang=pt").then(response => { 
@@ -63,43 +70,43 @@ io.on('connection',function(socket){
           
       dataCol.clima=response.data.weather[0].description;
 
-      dataCol.cidade=response.data.name;
+      dataCol.cidade=response.data.name.toLowerCase();
 
       dataCol.pais=response.data.sys.country; 
-      /*objectResponse.humidity =  response.data.main.humidity;
-      req.session.key = response.data.main.humidity;
-      console.log(req.session.key);
-      */
 
-
-
+      requestSuccessful=true;
+      
       }).catch(err=>{
-        console.log(err);
+        console.log("Request Error",err);
       }).finally(response=>{
-        console.log(dataCol);
-        io.to(socket.id).emit('weather', dataCol)
+        if(requestSuccessful){
+          
+          client.query(`INSERT INTO cidades.cidades (nome,pais,temperatura, contador,updated_at) 
+          VALUES ('${dataCol.cidade}','${dataCol.pais}','${dataCol.temperatura}',1,current_timestamp) 
+          ON CONFLICT (nome) DO UPDATE SET contador = cidades.contador + 1, updated_at = current_timestamp;`)
+          .then(res => console.log("responseFromDB",res.rows))
+          .catch(e => console.error(e.stack))
+          
+          io.to(socket.id).emit('weather', dataCol)
+
+          client.query(text)
+          .then(res => io.sockets.emit('history',res.rows))
+          .catch(e => console.error(e.stack))
+          
+        }  
     });
   });
+  //Call History From DB
+  socket.on('history',function(data){
+    client.query(text)
+    .then(res => io.sockets.emit('history',res.rows))
+    .catch(e => console.error(e.stack))
+  })
+
+  //Select Five most searched cities from db
+  socket.on('topFive',function(data){
+    client.query(`select * from cidades.cidades ORDER BY contador desc limit 5;`)
+    .then(res => io.sockets.emit('topFive',res.rows))
+    .catch(e => console.error(e.stack))
+  })
 });
-
-
-
-
-
-/*
-//Post Route with API
-axios.get("http://api.openweathermap.org/data/2.5/weather?q="+req.body.cidade+
-    "&units=metric&appid=" + process.env.API
-    + "&lang=pt").then(response => { 
-      objectResponse.humidity =  response.data.main.humidity;
-      req.session.key = response.data.main.humidity;
-      console.log(req.session.key);
-      }).catch(err=>{
-        console.log(err);
-      }).finally(response=>{
-        console.log('finally')
-        res.redirect('/')
-      });
-});
-*/
-//WebSocket

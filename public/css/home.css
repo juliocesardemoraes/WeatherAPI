@@ -95,9 +95,9 @@ body::after{
 }
 
 .umidade{
-    position: absolute;
-    left: 38%;
-    top: calc(25%);
+    width: 100%;
+    margin-top: 3em;
+    text-align: center;
 }
 
 .clima{
@@ -158,7 +158,11 @@ body::after{
     flex-direction: column;
 }
 
-@media only screen and (max-width:860px){
+.h1cidade{
+    font-weight: 500;
+}
+
+@media only screen and (max-width:800px){
     *{
         word-break: keep-all;
     }
