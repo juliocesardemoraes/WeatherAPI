@@ -26,6 +26,7 @@ e seu backend configurado em nodejs.
 * Google Fonts
 * Postgres version: 13
 * Handlebars: 4.7.7
+* Socket-io: 4.0.1
 
 
 ## Rodando
@@ -52,8 +53,6 @@ pelas suas dentro do arquivo.
 3- Adicionar uma introdução ao app.
 
 ## TASKS
-
-Tasks
 
 1- Uma página com dois paineis(esq direita): OK
 
