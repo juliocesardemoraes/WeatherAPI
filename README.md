@@ -31,14 +31,17 @@ e seu backend configurado em nodejs.
 
 ## Rodando
 :ferris_wheel:<br>
+0- Caso não esteja instalado, instale o <a href="https://nodejs.org/en/">Node</a> e o <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">Postgres</a>. Pegue sua chave da API em <a href="https://openweathermap.org/">openweathermap</a> ao criar uma conta o site disponibiliza uma
+chave api. 
+
 1- Para rodar o projeto, baixe a pasta do git.
 
 2- Rode npm update.
 
 3- Use Restore para "restaurar" o arquivo backup.sql no banco de dados Postgre
 
-4- Renomeie o arquivo empty.env para .env apenas, e troque as credenciais
-pelas suas dentro do arquivo.
+4- Renomeie o arquivo empty.env para .env apenas, e troque as credenciais pelas suas 
+credenciais(Chave API openweathermap e configurações do postgres) dentro do arquivo.
 
 5- Rode o programa utilizando nodemon app.js ou npm start(node app.js) 
 
