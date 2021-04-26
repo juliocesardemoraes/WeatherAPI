@@ -83,7 +83,7 @@ io.on('connection',function(socket){
           
           client.query(`INSERT INTO cidades.cidades (nome,pais,temperatura, contador,updated_at) 
           VALUES ('${dataCol.cidade}','${dataCol.pais}','${dataCol.temperatura}',1,current_timestamp) 
-          ON CONFLICT (nome) DO UPDATE SET contador = cidades.contador + 1, updated_at = current_timestamp;`)
+          ON CONFLICT (nome) DO UPDATE SET contador = cidades.contador + 1, updated_at = current_timestamp, temperatura = ${dataCol.temperatura};`)
           .then(res => console.log("responseFromDB",res.rows))
           .catch(e => console.error(e.stack))
           

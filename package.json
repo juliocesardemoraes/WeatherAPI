@@ -20,7 +20,8 @@
     "express-session": "^1.17.1",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0",
-    "socket.io": "^4.0.1"
+    "socket.io": "^4.0.1",
+    "sweetalert2": "^10.16.6"
   },
   "devDependencies": {
     "dotenv-webpack": "^7.0.2"
