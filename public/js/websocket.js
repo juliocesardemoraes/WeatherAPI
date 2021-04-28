@@ -62,7 +62,7 @@ socket.on('weather', function(data){
 
 //Receiving Database Data Regarding the TOP FIVE cities most searched and updating html
 socket.on('topFive', function(data){
-    if(document.getElementsByClassName("h1cidade")[0]!=null){
+    if(document.getElementsByClassName("h3city")[0]!=null){
         document.getElementById("dinamicList2").remove();
         let element = document.createElement('div')
         element.setAttribute("id", "dinamicList2");
@@ -74,9 +74,12 @@ socket.on('topFive', function(data){
 
         let cityName = document.createElement("h2");
         cityName.innerHTML = data[i].nome;
+        cityName.classList.add("cityNameContainer");
 
         let cityTemp = document.createElement("h2");
-        cityTemp.innerHTML = data[i].temperatura;
+        cityTemp.innerHTML = data[i].temperatura +" Cº";
+        cityTemp.classList.add("tempTopContainer");
+        
 
         let cityCountry = document.createElement("h2");
         cityCountry.innerHTML = data[i].pais;
@@ -92,7 +95,7 @@ socket.on('topFive', function(data){
 
 //Receiving Database Data Regarding the last searched cities and updating html
 socket.on('history', function(data){
-    if(document.getElementsByClassName("h1cidade")[0]!=null){
+    if(document.getElementsByClassName("h3city")[0]!=null){
         document.getElementById("dinamicList").remove();
         let element = document.createElement('div')
         element.setAttribute("id", "dinamicList");
@@ -101,7 +104,7 @@ socket.on('history', function(data){
     for (let i = 0; i < data.length; i++) {
         let cidadeH1  = document.createElement("h3");
         cidadeH1.innerHTML = data[i].nome;
-        cidadeH1.classList.add('h1cidade');
+        cidadeH1.classList.add('h3city');
         document.getElementById("dinamicList").appendChild(cidadeH1);
     }
 })

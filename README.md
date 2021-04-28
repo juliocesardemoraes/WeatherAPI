@@ -6,10 +6,12 @@
 ![](weatherApiGif.gif)
 
 ## Conteúdo
-* [Informações](#informações)
-* [Tecnologias](#tecnologias)
+* [Informações](#Informações)
+* [Tecnologias](#Tecnologias)
 * [Como Rodar](#Rodando)
-* [Próximos Passos](#PróximosPassos )
+* [Próximos Passos](#PróximosPassos)
+* [Próximos Passos Já Feitos](#PróximosPassosCompletados)
+* [TASKS](#TASKS)
 
 
 ## Informações
@@ -18,8 +20,8 @@ Esse projeto foi feito sem frameworks pois eram opcionais no teste, com o banco 
 e seu backend configurado em nodejs. 
 
 ## Tecnologias
-
-:computer: Projeto foi criado utilizando:
+:computer: 
+Projeto foi criado utilizando:
 * Node Version: 14.15.4
 * Axios version: 0.21.1
 * SweetAlert version: 10.0.2
@@ -45,15 +47,15 @@ credenciais(Chave API openweathermap e configurações do postgres) dentro do ar
 
 5- Rode o programa utilizando nodemon app.js ou npm start(node app.js) 
 
-
-
 ## PróximosPassos 
 :bug:<br>
-1- Ajeitar o css do top-five. Pois este está descentralizado<br>
+1- Usar o docker e o heroku para fazer um deploy.
 
-2- Usar o docker e o heroku para fazer um deploy.
+2- Adicionar uma introdução ao app.
 
-3- Adicionar uma introdução ao app.
+## PróximosPassosCompletados
+
+1- Ajeitar o css do top-five. Pois este está descentralizado<br> OK
 
 ## TASKS
 

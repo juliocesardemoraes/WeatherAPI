@@ -141,7 +141,8 @@ body::after{
     flex-direction: column;
 }
 
-.h1cidade{
+.h3city{
+    font-size: 1.5em;
     font-weight: 500;
 }
 
@@ -169,20 +170,6 @@ h3,h2,h1{
     justify-content: center;
 }
 
-.cityHeader{
-    text-align: center;
-}
-
-#containerList,#containerList2{
-    width: 100%;
-    
-}
-#dinamicList, #dinamicList2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 body{
     color:white;
@@ -190,7 +177,9 @@ body{
 
 
 .cityContainer{
-    width: 75%;
+
+    align-items: center;
+    width: 100%;
     height: 2.5rem;
     display: flex;
     flex-direction: row;
@@ -198,9 +187,25 @@ body{
     border-radius: 2em;
     background: rgba( 67, 71, 248, 0.25 );   
     margin-bottom: 1em;
+   
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:600px){
+    #containerList2{
+        width:100%;
+    }
+    .tempTopContainer{
+        width: 3rem !important;
+    }
+    
+    .cityNameContainer{
+        width: 5rem !important;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (max-width:850px){
     *{
         word-break: keep-all;
     }
@@ -216,11 +221,48 @@ body{
     .firstList{
         margin-bottom:4em;
     }
+    
+
+    .cityContainer{
+        
+        height:5rem  !important;
+    }
+    .cityContainer h2{
+        font-size:1em !important;
+        
+    }
 }
 
 @media only screen and (max-width:1100px){
     .cityContainer{
         width:100%;
-        
     }
+}
+@media only screen and (max-width:1400px){
+    .h3city{
+        font-size: 1em !important;
+    }
+}
+.tempTopContainer{
+    width: 7rem;
+}
+
+.cityNameContainer{
+    width: 20rem;
+    text-align: center;
+}
+
+
+.secondList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.cityHeader,.cityHeader2{
+    text-align: center;
 }
