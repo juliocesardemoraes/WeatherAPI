@@ -55,7 +55,7 @@ credenciais(Chave API openweathermap e configurações do postgres) dentro do ar
 
 ## PróximosPassosCompletados
 
-1- Ajeitar o css do top-five. Pois este está descentralizado<br> OK
+1- Ajeitar o css do top-five. Pois este está descentralizado OK
 
 ## TASKS
 
