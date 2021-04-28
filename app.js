@@ -37,11 +37,7 @@ client.connect();
 
 
 //WebSocket Socket.io 
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  }
-});
+const io = require('socket.io')(server);
 
 io.on('connection',function(socket){
   let requestSuccessful = false;
